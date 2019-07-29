@@ -32,12 +32,16 @@ $(document).ready(function(){
             // se num<=5 il quadrato cliccato è giallo, invece se num>5 è verde
             if (numApi <= 5) {
               $(thisSquare).addClass("yellow number");
-              $(thisSquare).text(numApi); //faccio apparire num api al centro del quadrato
+              //faccio apparire num api al centro del quadrato
+              $(thisSquare).text(numApi);
+              /*cliccando più volte sullo stesso quadrato,
+              cambia comunque il colore in base al numero random*/
+              $(thisSquare).removeClass("green");
             } else if (numApi > 5) {
               $(thisSquare).addClass("green number");
               $(thisSquare).text(numApi);
+              $(thisSquare).removeClass("yellow");
             }
-
           },
           error : function() {
 
