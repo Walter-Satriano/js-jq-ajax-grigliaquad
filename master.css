@@ -1,0 +1,37 @@
+/*REGOLE GENERALI*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*REGOLE COMUNI*/
+#container_grid {
+  width: 600px;
+  height: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#container_grid .square {
+  width: calc(600px / 6);
+  height: calc(600px / 6);
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.yellow {
+  background: rgb(255, 255, 0);
+}
+
+.green {
+  background: rgb(0, 255, 0);
+}
+
+.number {
+  font-size: 40px;
+  font-family: verdana;
+}
