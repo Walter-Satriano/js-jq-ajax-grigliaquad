@@ -1,6 +1,6 @@
 /*ESERCIZIO:
 Creare una griglia 6x6, ad ogni click parte una richiesta AJAX
-che prende un numero random da 0 a 9.
+che prende un numero random da 1 a 9.
 
 Se è <= 5 il quadrato diventa giallo,
 se è > di 5 il quadrato diventa verde.
@@ -15,10 +15,9 @@ $(document).ready(function(){
 
 
   //funzione che ad ogni click fa partire una chiamata ajax
-  $(".square").click(
-    function() {
+  $(".square").one("click", function() {
 
-      var thisSquare = this;
+      var thisSquare = $(this);
 
       //richiedo via ajax all'API un numero random
       $.ajax(
@@ -32,19 +31,17 @@ $(document).ready(function(){
             // se num<=5 il quadrato cliccato è giallo, invece se num>5 è verde
             if (numApi <= 5) {
               $(thisSquare).addClass("yellow number");
-              //faccio apparire num api al centro del quadrato
-              $(thisSquare).text(numApi);
-              /*cliccando più volte sullo stesso quadrato,
-              cambia comunque il colore in base al numero random*/
-              $(thisSquare).removeClass("green");
+              //cliccando più volte sullo stesso quadrato, cambia comunque il colore in base al numero random
             } else if (numApi > 5) {
               $(thisSquare).addClass("green number");
-              $(thisSquare).text(numApi);
-              $(thisSquare).removeClass("yellow");
             }
-          },
-          error : function() {
 
+            //faccio apparire num api al centro del quadrato
+            $(thisSquare).text(numApi);
+
+          },
+          error : function(richiesta, stato, errore) {
+            console.log("E' avvenuto un errore. " + errore);
           }
         }
       );
