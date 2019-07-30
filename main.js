@@ -31,7 +31,6 @@ $(document).ready(function(){
             // se num<=5 il quadrato cliccato è giallo, invece se num>5 è verde
             if (numApi <= 5) {
               $(thisSquare).addClass("yellow number");
-              //cliccando più volte sullo stesso quadrato, cambia comunque il colore in base al numero random
             } else if (numApi > 5) {
               $(thisSquare).addClass("green number");
             }
